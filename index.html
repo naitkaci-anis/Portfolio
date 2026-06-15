@@ -36,6 +36,95 @@ body.light{
   --surface:rgba(255,255,255,0.85);
   --grad-start:#0f1b2d;
 }
+
+/* ===== CORRECTIFS MODE CLAIR ===== */
+/* Cartes projet : fond opaque clair + texte lisible */
+body.light .cf-card{
+  background:rgba(255,255,255,0.92);
+  border-color:rgba(10,18,40,0.10);
+  box-shadow:0 24px 60px rgba(60,80,140,0.18);
+}
+body.light .cf-card .cf-imgwrap{background:#dce5f2}
+body.light .cf-card .cf-imgwrap::after{
+  background:linear-gradient(180deg,transparent 55%,rgba(255,255,255,0.35));
+}
+body.light .cf-title{color:#142033}
+body.light .cf-desc{color:#4a5a72}
+/* cartes latérales : on garde une bonne opacité pour qu'elles restent visibles */
+body.light .cf-card:not(.is-center){opacity:1}
+body.light .cf-card:not(.is-center) .cf-body{opacity:0.92}
+/* badge */
+body.light .cf-badge{
+  background:rgba(0,119,204,0.12);
+  border-color:rgba(0,119,204,0.30);
+  color:#0066b3;
+}
+/* tags */
+body.light .cf-tag{
+  background:rgba(109,40,217,0.10);
+  border-color:rgba(109,40,217,0.25);
+  color:#6d28d9;
+}
+/* dots du carrousel */
+body.light .cf-dot{background:rgba(10,18,40,0.18)}
+/* hint */
+body.light .cf-hint{color:#5b6b82}
+
+/* Footer : fond clair au lieu du gris sombre */
+body.light footer{
+  background:rgba(255,255,255,0.55);
+  border-top-color:rgba(10,18,40,0.10);
+}
+body.light .social-link{color:#5b6b82}
+
+/* Cartes À-propos / stats / compétences : surfaces claires */
+body.light .glass,
+body.light .stats-card,
+body.light .stat-chip,
+body.light .skill-card,
+body.light .about-card,
+body.light .contact-card,
+body.light .form-input,
+body.light .form-textarea{
+  background:rgba(255,255,255,0.7);
+}
+/* navbar en clair */
+body.light nav{
+  background:rgba(255,255,255,0.65);
+  border-bottom-color:rgba(10,18,40,0.08);
+}
+/* loader */
+body.light .loader{background:#f4f6fb}
+
+/* ===== FOND AURORE BORÉALE (mode clair uniquement) ===== */
+.aurora{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:0;transition:opacity 0.6s ease;
+  overflow:hidden;
+}
+body.light .aurora{opacity:1}
+.aurora span{
+  position:absolute;border-radius:50%;
+  filter:blur(70px);opacity:0.55;
+  mix-blend-mode:multiply;
+  animation:auroraFloat 18s ease-in-out infinite;
+}
+.aurora .a1{width:48vw;height:48vw;left:-8vw;top:-10vw;
+  background:radial-gradient(circle,#9fd8c8,transparent 65%);animation-delay:0s}
+.aurora .a2{width:42vw;height:42vw;right:-6vw;top:6vh;
+  background:radial-gradient(circle,#a9d6f5,transparent 65%);animation-delay:-4s}
+.aurora .a3{width:40vw;height:40vw;left:18vw;bottom:-12vw;
+  background:radial-gradient(circle,#c9b6ef,transparent 65%);animation-delay:-8s}
+.aurora .a4{width:34vw;height:34vw;right:14vw;bottom:-8vw;
+  background:radial-gradient(circle,#bfe3a8,transparent 65%);animation-delay:-12s}
+@keyframes auroraFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(4vw,3vh) scale(1.08)}
+  66%{transform:translate(-3vw,-2vh) scale(0.95)}
+}
+@media(prefers-reduced-motion:reduce){
+  .aurora span{animation:none}
+}
 body,body *{transition:background-color 0.4s,color 0.3s,border-color 0.3s}
 html{scroll-behavior:smooth}
 body{
@@ -881,6 +970,12 @@ footer{
 <!-- Background particles -->
 <div class="bg-canvas"><canvas id="particles"></canvas></div>
 <div class="bg-gradient"></div>
+<div class="aurora" aria-hidden="true">
+  <span class="a1"></span>
+  <span class="a2"></span>
+  <span class="a3"></span>
+  <span class="a4"></span>
+</div>
 
 <!-- NAVBAR -->
 <nav>
@@ -964,10 +1059,10 @@ footer{
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p data-i18n="about.p1">Je suis <strong>Anis Nait Kaci</strong>, étudiant en informatique actuellement en <strong>Master MIAGE</strong> à l'Université Paris Dauphine-PSL, l'une des universités les plus prestigieuses de France. Ma passion se situe à l'intersection de l'intelligence artificielle, de l'ingénierie des systèmes et de la cybersécurité.</p>
-        <p data-i18n="about.p2">Je conçois des <strong>systèmes intelligents de gestion documentaire</strong> avec des pipelines RAG et des grands modèles de langage, développe des applications complètes à l'architecture propre, et possède une expérience concrète en <strong>support IT et opérations de cybersécurité</strong> acquise lors de mon stage chez Deessi.</p>
-        <p data-i18n="about.p3">Mon approche est simple : écrire du code propre, penser en systèmes et toujours prioriser l'expérience utilisateur. Qu'il s'agisse d'affiner un modèle CamemBERT ou de déboguer un problème réseau, j'apporte la même <strong>rigueur méthodique et profondeur technique</strong> à chaque défi.</p>
-        <p data-i18n="about.p4">Actuellement à la recherche d'une <strong>alternance de 12 à 24 mois</strong> à partir de septembre 2026 en développement logiciel, IA ou infrastructure IT.</p>
+        <p data-i18n="about.p1">Je suis <strong>Anis Nait Kaci</strong>, étudiant en informatique en <strong>Master MIAGE</strong> à l'Université Paris Dauphine-PSL. Mon intérêt principal porte sur l'<strong>intelligence artificielle</strong> et son application concrète : systèmes de gestion documentaire, traitement du langage et exploitation de grands modèles de langage.</p>
+        <p data-i18n="about.p2">J'ai conçu des <strong>applications complètes</strong> mêlant IA et développement logiciel, où j'expérimente des approches comme la recherche augmentée par récupération (RAG) et l'usage de modèles de langage pour résoudre des problèmes réels. J'aime comprendre comment ces outils fonctionnent en profondeur et les intégrer dans des projets qui ont du sens, plutôt que de rester dans la théorie.</p>
+        <p data-i18n="about.p3">À côté de l'IA, je développe des applications à l'architecture soignée et j'ai acquis une <strong>expérience concrète en support IT et des notions de cybersécurité</strong> lors de mon stage chez Deessi. Cette polyvalence me permet de relier la couche applicative, les données et l'infrastructure.</p>
+        <p data-i18n="about.p4">Mon approche est simple : du <strong>code propre</strong>, une <strong>vision système</strong> et la priorité donnée à l'utilisateur. Je suis actuellement à la recherche d'une <strong>alternance de 12 à 24 mois à partir de septembre 2026</strong>, en intelligence artificielle, développement logiciel ou infrastructure IT.</p>
       </div>
       <div>
         <div class="about-photo" style="position:relative">
@@ -1006,35 +1101,36 @@ footer{
     <div class="skills-cats reveal">
       <div class="skill-cat">
         <div class="skill-cat-title"><span>⌨</span> Programming</div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.90"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Java</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.75"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">SQL / PostgreSQL</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.80"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">PHP</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.70"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">SQL / PostgreSQL</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.90"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Python</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">HTML / CSS</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Java</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.80"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">JavaScript</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.70"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">C (C99)</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.70"></div></div></div>
       </div>
       <div class="skill-cat">
         <div class="skill-cat-title"><span>🧠</span> AI & Data</div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">RAG / LLM Pipelines</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">HuggingFace / Transformers</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.80"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Deep Learning / Neural Nets</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.75"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Streamlit / ChromaDB</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">NLP / Fine-tuning</span><span class="skill-pct">78%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.78"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Deep Learning / Neural Nets</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Transformers</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.75"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Streamlit / ChromaDB</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.75"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">PyTorch</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.70"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">RAG / LLM Pipelines</span><span class="skill-pct">60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.60"></div></div></div>
       </div>
       <div class="skill-cat">
         <div class="skill-cat-title"><span>🔒</span> Cybersecurity & IT</div>
         <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">IT Support N1/N2</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Windows / Linux Admin</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.80"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">SOC / Security Monitoring</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.65"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Network Configuration</span><span class="skill-pct">72%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.72"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Audit SI / Risk Analysis</span><span class="skill-pct">60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.60"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Windows / Linux Admin</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Active Directory / Ticketing</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Network Configuration</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.75"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name" data-i18n="skill.soc">SOC / Supervision (notions)</span><span class="skill-pct">50%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.50"></div></div></div>
       </div>
       <div class="skill-cat">
-        <div class="skill-cat-title"><span>⚙</span> Architecture & Design</div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">UML / Modeling</span><span class="skill-pct">88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.88"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Design Patterns</span><span class="skill-pct">82%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.82"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Figma / Prototyping</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.70"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.88"></div></div></div>
-        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">3-Layer Architecture</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.80"></div></div></div>
+        <div class="skill-cat-title"><span>⚙</span> Architecture &amp; Design</div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">UML / Modeling</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.90"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.90"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Design Patterns</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">Figma / Prototyping</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-top"><span class="skill-name">MCD / Merise</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="0.85"></div></div></div>
       </div>
     </div>
   </div>
@@ -1089,7 +1185,7 @@ footer{
             <span class="tperiod" data-i18n="exp.e1.period">Mai – Juin 2026</span>
             <div class="trole" data-i18n="exp.e1.role">Stagiaire Support Informatique</div>
             <div class="torg" data-i18n="exp.e1.org">Deessi — Paris</div>
-            <p class="tdesc" data-i18n="exp.e1.desc">Gestion des tickets de niveau 1 et 2 et résolution d'incidents matériels et logiciels. Configuration et déploiement de postes de travail (Windows, suite bureautique, périphériques réseau). Participation à des mini-projets techniques aux côtés d'ingénieurs seniors. Collaboration avec l'équipe cybersécurité sur des audits du système d'information et des opérations SOC (supervision, analyse des alertes).</p>
+            <p class="tdesc" data-i18n="exp.e1.desc">Gestion des tickets de niveau 1 et résolution d'incidents matériels et logiciels. Configuration et déploiement de postes de travail (Windows, suite bureautique, périphériques réseau). Participation à des mini-projets techniques et assistance au technicien aux côtés d'ingénieurs. Premières notions de cybersécurité en environnement professionnel.</p>
           </div>
         </div>
         <div class="tnode right">
@@ -1108,7 +1204,7 @@ footer{
       <div class="journey-head">
         <span class="jh-bar"></span>
         <h3 data-i18n="exp.eduHead">// Formation</h3>
-        <span class="jh-count">04</span>
+        <span class="jh-count">05</span>
       </div>
       <div class="tline">
         <div class="tnode left">
@@ -1124,7 +1220,7 @@ footer{
             <span class="tperiod" data-i18n="exp.f2.period">2025 – 2026</span>
             <div class="trole" data-i18n="exp.f2.role">Licence 3 Informatique CILS (en cours)</div>
             <div class="torg" data-i18n="exp.f2.org">Université d'Évry Paris-Saclay</div>
-            <p class="tdesc" data-i18n="exp.f2.desc">Dernière année de licence axée sur les fondamentaux avancés : intelligence artificielle, théorie des graphes, systèmes d'exploitation, réseaux, compilation et modélisation UML. Projets pratiques mêlant algorithmique et développement d'applications.</p>
+            <p class="tdesc" data-i18n="exp.f2.desc">Dernière année de licence axée sur les fondamentaux avancés : intelligence artificielle, théorie des graphes, systèmes d'exploitation, réseaux et modélisation UML. Projets pratiques mêlant algorithmique, développement d'applications et entraînement d'une IA.</p>
           </div>
         </div>
         <div class="tnode left">
@@ -1136,6 +1232,14 @@ footer{
           </div>
         </div>
         <div class="tnode right">
+          <div class="tcard">
+            <span class="tperiod" data-i18n="exp.f5.period">2022 – 2024</span>
+            <div class="trole" data-i18n="exp.f5.role">Cycle Ingénieur en Informatique (1ère &amp; 2ème année)</div>
+            <div class="torg" data-i18n="exp.f5.org">Université Mouloud Mammeri — Tizi-Ouzou, Algérie</div>
+            <p class="tdesc" data-i18n="exp.f5.desc">Deux premières années du cycle ingénieur en informatique (domaine Mathématiques et Informatique), validées avec succès. Solides fondations en algorithmique et structures de données, programmation orientée objet, bases de données, architecture des ordinateurs, systèmes d'exploitation et réseaux, complétées par de solides bases mathématiques (analyse, algèbre, probabilités, théorie des graphes). Une formation exigeante qui a forgé ma rigueur technique avant ma poursuite d'études en France.</p>
+          </div>
+        </div>
+        <div class="tnode left">
           <div class="tcard">
             <span class="tperiod" data-i18n="exp.f4.period">2022</span>
             <div class="trole" data-i18n="exp.f4.role">Baccalauréat Scientifique — Mention Bien</div>
@@ -1466,18 +1570,19 @@ window.I18N = {
     "hero.btnProjects":"Voir les projets →","hero.btnContact":"Me contacter",
     "hero.statProjects":"Projets","hero.statTech":"Technologies","hero.statYears":"Années en info",
     "about.tag":"À propos","about.title":"Qui je suis","about.sub":"Un passionné de technologie qui transforme les problèmes complexes en solutions élégantes.",
-    "about.p1":"Je suis <strong>Anis Nait Kaci</strong>, étudiant en informatique actuellement en <strong>Master MIAGE</strong> à l'Université Paris Dauphine-PSL, l'une des universités les plus prestigieuses de France. Ma passion se situe à l'intersection de l'intelligence artificielle, de l'ingénierie des systèmes et de la cybersécurité.",
-    "about.p2":"Je conçois des <strong>systèmes intelligents de gestion documentaire</strong> avec des pipelines RAG et des grands modèles de langage, développe des applications complètes à l'architecture propre, et possède une expérience concrète en <strong>support IT et opérations de cybersécurité</strong> acquise lors de mon stage chez Deessi.",
-    "about.p3":"Mon approche est simple : écrire du code propre, penser en systèmes et toujours prioriser l'expérience utilisateur. Qu'il s'agisse d'affiner un modèle CamemBERT ou de déboguer un problème réseau, j'apporte la même <strong>rigueur méthodique et profondeur technique</strong> à chaque défi.",
-    "about.p4":"Actuellement à la recherche d'une <strong>alternance de 12 à 24 mois</strong> à partir de septembre 2026 en développement logiciel, IA ou infrastructure IT.",
-    "skills.tag":"Compétences","skills.title":"Expertise technique","skills.sub":"Des algorithmes bas niveau aux pipelines d'IA en production.",
+    "about.p1":"Je suis <strong>Anis Nait Kaci</strong>, étudiant en informatique en <strong>Master MIAGE</strong> à l'Université Paris Dauphine-PSL. Mon intérêt principal porte sur l'<strong>intelligence artificielle</strong> et son application concrète : systèmes de gestion documentaire, traitement du langage et exploitation de grands modèles de langage.",
+    "about.p2":"J'ai conçu des <strong>applications complètes</strong> mêlant IA et développement logiciel, où j'expérimente des approches comme la recherche augmentée par récupération (RAG) et l'usage de modèles de langage pour résoudre des problèmes réels. J'aime comprendre comment ces outils fonctionnent en profondeur et les intégrer dans des projets qui ont du sens, plutôt que de rester dans la théorie.",
+    "about.p3":"À côté de l'IA, je développe des applications à l'architecture soignée et j'ai acquis une <strong>expérience concrète en support IT et des notions de cybersécurité</strong> lors de mon stage chez Deessi. Cette polyvalence me permet de relier la couche applicative, les données et l'infrastructure.",
+    "about.p4":"Mon approche est simple : du <strong>code propre</strong>, une <strong>vision système</strong> et la priorité donnée à l'utilisateur. Je suis actuellement à la recherche d'une <strong>alternance de 12 à 24 mois à partir de septembre 2026</strong>, en intelligence artificielle, développement logiciel ou infrastructure IT.",
+    "skills.tag":"Compétences","skills.title":"Expertise technique","skills.sub":"Des algorithmes bas niveau aux pipelines d'IA en production.","skill.soc":"SOC / Supervision (notions)",
     "proj.tag":"Projets","proj.title":"Ce que j'ai construit","proj.sub":"Des solutions concrètes, du vrai code, un impact réel.",
     "exp.tag":"Parcours","exp.title":"Expérience & Formation","exp.sub":"Construire mon savoir par la pratique et l'excellence académique.",
     "exp.expHead":"// Expérience","exp.eduHead":"// Formation",
-    "exp.e1.period":"Mai – Juin 2026","exp.e1.role":"Stagiaire Support Informatique","exp.e1.org":"Deessi — Paris","exp.e1.desc":"Gestion des tickets de niveau 1 et 2 et résolution d'incidents matériels et logiciels. Configuration et déploiement de postes de travail (Windows, suite bureautique, périphériques réseau). Participation à des mini-projets techniques aux côtés d'ingénieurs seniors. Collaboration avec l'équipe cybersécurité sur des audits du système d'information et des opérations SOC (supervision, analyse des alertes).",
+    "exp.e1.period":"Mai – Juin 2026","exp.e1.role":"Stagiaire Support Informatique","exp.e1.org":"Deessi — Paris","exp.e1.desc":"Gestion des tickets de niveau 1 et résolution d'incidents matériels et logiciels. Configuration et déploiement de postes de travail (Windows, suite bureautique, périphériques réseau). Participation à des mini-projets techniques et assistance au technicien aux côtés d'ingénieurs. Premières notions de cybersécurité en environnement professionnel.",
     "exp.e2.period":"Oct 2025 – Présent","exp.e2.role":"Employé Polyvalent","exp.e2.org":"Casino Shop — Brie-Comte-Robert","exp.e2.desc":"Relation client, tenue de caisse et gestion des stocks et des réassorts. Travail en équipe sous contrainte de temps et respect des procédures. Une expérience qui m'a forgé autonomie, rigueur et sens du service en environnement professionnel réel, en parallèle de mes études.",
     "exp.f1.period":"2026 – 2028","exp.f1.role":"Master MIAGE — en alternance","exp.f1.org":"Université Paris Dauphine-PSL","exp.f1.desc":"Formation à l'intersection de l'informatique et du management des systèmes d'information. Au programme : conception et pilotage de projets IT, bases de données avancées, génie logiciel, architecture d'entreprise et transformation numérique. Cursus en alternance recherché à partir de septembre 2026.",
-    "exp.f2.period":"2025 – 2026","exp.f2.role":"Licence 3 Informatique CILS (en cours)","exp.f2.org":"Université d'Évry Paris-Saclay","exp.f2.desc":"Dernière année de licence axée sur les fondamentaux avancés : intelligence artificielle, théorie des graphes, systèmes d'exploitation, réseaux, compilation et modélisation UML. Projets pratiques mêlant algorithmique et développement d'applications.",
+    "exp.f2.period":"2025 – 2026","exp.f2.role":"Licence 3 Informatique CILS (en cours)","exp.f2.org":"Université d'Évry Paris-Saclay","exp.f2.desc":"Dernière année de licence axée sur les fondamentaux avancés : intelligence artificielle, théorie des graphes, systèmes d'exploitation, réseaux et modélisation UML. Projets pratiques mêlant algorithmique, développement d'applications et entraînement d'une IA.",
+    "exp.f5.period":"2022 – 2024","exp.f5.role":"Cycle Ingénieur en Informatique (1ère & 2ème année)","exp.f5.org":"Université Mouloud Mammeri — Tizi-Ouzou, Algérie","exp.f5.desc":"Deux premières années du cycle ingénieur en informatique (domaine Mathématiques et Informatique), validées avec succès. Solides fondations en algorithmique et structures de données, programmation orientée objet, bases de données, architecture des ordinateurs, systèmes d'exploitation et réseaux, complétées par de solides bases mathématiques (analyse, algèbre, probabilités, théorie des graphes). Une formation exigeante qui a forgé ma rigueur technique avant ma poursuite d'études en France.",
     "exp.f3.period":"2024 – 2025","exp.f3.role":"Licence 2 Informatique","exp.f3.org":"Université d'Évry Paris-Saclay","exp.f3.desc":"Acquisition des bases solides du développement : programmation orientée objet, structures de données et algorithmique, bases de données relationnelles (SQL) et développement web dynamique.",
     "exp.f4.period":"2022","exp.f4.role":"Baccalauréat Scientifique — Mention Bien","exp.f4.org":"Algérie — 15,46/20","exp.f4.desc":"Baccalauréat scientifique obtenu avec mention Bien (15,46/20). De solides fondations en mathématiques, sciences physiques et raisonnement analytique, point de départ de mon orientation vers l'informatique.",
     "gal.tag":"Galerie","gal.title":"En action","gal.sub":"Un aperçu du travail et du parcours.","gal.cap1":"Portrait","gal.cap2":"Présentation","gal.cap3":"Au travail",
@@ -1498,18 +1603,19 @@ window.I18N = {
     "hero.btnProjects":"View Projects →","hero.btnContact":"Contact Me",
     "hero.statProjects":"Projects","hero.statTech":"Technologies","hero.statYears":"Years CS",
     "about.tag":"About Me","about.title":"Who I Am","about.sub":"A driven tech enthusiast turning complex problems into elegant solutions.",
-    "about.p1":"I'm <strong>Anis Nait Kaci</strong>, a computer science student currently pursuing a <strong>Master MIAGE</strong> at Université Paris Dauphine-PSL, one of France's most prestigious universities. My passion lies at the intersection of artificial intelligence, systems engineering, and cybersecurity.",
-    "about.p2":"I build <strong>intelligent document management systems</strong> using RAG pipelines and large language models, develop end-to-end applications with clean architecture, and have hands-on experience in <strong>IT support and cybersecurity operations</strong> from my internship at Deessi.",
-    "about.p3":"My approach is simple: write clean code, think in systems, and always prioritize the user experience. Whether it's fine-tuning a CamemBERT model or debugging a network issue, I bring the same <strong>methodical mindset and technical depth</strong> to every challenge.",
-    "about.p4":"Currently seeking a <strong>12–24 month alternance</strong> starting September 2026 in software development, AI, or IT infrastructure roles.",
-    "skills.tag":"Skills","skills.title":"Technical Expertise","skills.sub":"From low-level algorithms to production AI pipelines.",
+    "about.p1":"I'm <strong>Anis Nait Kaci</strong>, a computer science student in the <strong>Master MIAGE</strong> program at Université Paris Dauphine-PSL. My main focus is <strong>artificial intelligence</strong> and its concrete applications: document management systems, language processing and the use of large language models.",
+    "about.p2":"I've built <strong>end-to-end applications</strong> combining AI and software development, experimenting with approaches such as retrieval-augmented generation (RAG) and the use of language models to solve real problems. I like to understand how these tools work under the hood and integrate them into projects that make sense, rather than staying purely theoretical.",
+    "about.p3":"Alongside AI, I develop applications with carefully designed architecture, and I gained <strong>hands-on experience in IT support and the fundamentals of cybersecurity</strong> during my internship at Deessi. This versatility lets me connect the application layer, the data, and the infrastructure.",
+    "about.p4":"My approach is simple: <strong>clean code</strong>, a <strong>systems mindset</strong>, and a focus on the user. I'm currently looking for a <strong>12–24 month work-study placement starting September 2026</strong>, in artificial intelligence, software development, or IT infrastructure.",
+    "skills.tag":"Skills","skills.title":"Technical Expertise","skills.sub":"From low-level algorithms to production AI pipelines.","skill.soc":"SOC / Monitoring (basics)",
     "proj.tag":"Projects","proj.title":"What I've Built","proj.sub":"Real solutions, real code, real impact.",
     "exp.tag":"Journey","exp.title":"Experience & Education","exp.sub":"Building knowledge through real-world practice and academic excellence.",
     "exp.expHead":"// Experience","exp.eduHead":"// Education",
-    "exp.e1.period":"May – Jun 2026","exp.e1.role":"IT Support Intern","exp.e1.org":"Deessi — Paris","exp.e1.desc":"Level 1 & 2 ticket management and resolution of hardware and software incidents. Configuration and deployment of workstations (Windows, office suite, network peripherals). Contributed to technical mini-projects alongside senior engineers. Collaborated with the cybersecurity team on information-system audits and SOC operations (monitoring, alert analysis).",
+    "exp.e1.period":"May – Jun 2026","exp.e1.role":"IT Support Intern","exp.e1.org":"Deessi — Paris","exp.e1.desc":"Level 1 ticket management and resolution of hardware and software incidents. Configuration and deployment of workstations (Windows, office suite, network peripherals). Contributed to technical mini-projects and assisted the technician alongside engineers. First hands-on exposure to cybersecurity in a professional setting.",
     "exp.e2.period":"Oct 2025 – Present","exp.e2.role":"Store Associate","exp.e2.org":"Casino Shop — Brie-Comte-Robert","exp.e2.desc":"Customer service, cashiering, and stock and restocking management. Teamwork under time pressure with strict adherence to procedures. An experience that built my autonomy, rigor and service mindset in a real professional environment, alongside my studies.",
     "exp.f1.period":"2026 – 2028","exp.f1.role":"Master MIAGE — Work-Study","exp.f1.org":"Université Paris Dauphine-PSL","exp.f1.desc":"A program at the crossroads of computer science and information-systems management. Covering IT project design and management, advanced databases, software engineering, enterprise architecture and digital transformation. Work-study placement sought from September 2026.",
-    "exp.f2.period":"2025 – 2026","exp.f2.role":"BSc Year 3 — Computer Science (CILS, ongoing)","exp.f2.org":"Université d'Évry Paris-Saclay","exp.f2.desc":"Final bachelor year focused on advanced fundamentals: artificial intelligence, graph theory, operating systems, networks, compilation and UML modeling. Hands-on projects combining algorithmics and application development.",
+    "exp.f2.period":"2025 – 2026","exp.f2.role":"BSc Year 3 — Computer Science (CILS, ongoing)","exp.f2.org":"Université d'Évry Paris-Saclay","exp.f2.desc":"Final bachelor year focused on advanced fundamentals: artificial intelligence, graph theory, operating systems, networks and UML modeling. Hands-on projects combining algorithmics, application development and training an AI model.",
+    "exp.f5.period":"2022 – 2024","exp.f5.role":"Computer Science Engineering — Years 1 & 2","exp.f5.org":"Mouloud Mammeri University — Tizi-Ouzou, Algeria","exp.f5.desc":"First two years of the computer science engineering program (Mathematics and Computer Science track), completed successfully. Strong foundations in algorithms and data structures, object-oriented programming, databases, computer architecture, operating systems and networks, complemented by solid mathematics (analysis, algebra, probability, graph theory). A demanding program that built my technical rigor before continuing my studies in France.",
     "exp.f3.period":"2024 – 2025","exp.f3.role":"BSc Year 2 — Computer Science","exp.f3.org":"Université d'Évry Paris-Saclay","exp.f3.desc":"Building solid development foundations: object-oriented programming, data structures and algorithms, relational databases (SQL) and dynamic web development.",
     "exp.f4.period":"2022","exp.f4.role":"Scientific Baccalauréat — With Honors","exp.f4.org":"Algeria — 15.46/20","exp.f4.desc":"Scientific high-school diploma earned with honors (15.46/20). A strong foundation in mathematics, physical sciences and analytical reasoning — the starting point of my path toward computer science.",
     "gal.tag":"Gallery","gal.title":"In Action","gal.sub":"A glimpse into the work and the journey.","gal.cap1":"Portrait","gal.cap2":"Presentation","gal.cap3":"At work",
