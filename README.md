@@ -1,12 +1,13 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20,24,30&height=200&section=header&text=Anis%20NAIT%20KACI&fontSize=50&fontColor=ffffff&desc=Portfolio%20%C2%B7%20IA%20%C2%B7%20D%C3%A9veloppement%20%C2%B7%20IT&descSize=18&descAlignY=62)
-
 <div align="center">
 
-# Portfolio — Anis NAIT KACI
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20,24,30&height=200&section=header&text=Anis%20NAIT%20KACI&fontSize=50&fontColor=ffffff&desc=Portfolio%20%C2%B7%20IA%20%C2%B7%20D%C3%A9veloppement%20%C2%B7%20IT&descSize=18&descAlignY=62" width="100%"/>
 
-Portfolio web personnel présentant mon parcours, mes compétences et mes projets en informatique (intelligence artificielle, développement logiciel et IT).
+### Portfolio web personnel
 
-![](https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=20,24,30&height=4)
+Présentant mon parcours, mes compétences et mes projets en informatique<br>
+*(intelligence artificielle, développement logiciel et IT).*
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=20,24,30&height=4" width="60%"/>
 
 *Conçu avec passion pour la technologie et l'innovation — © 2026 Anis Nait Kaci*
 
