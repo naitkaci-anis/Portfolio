@@ -19,8 +19,6 @@
   <img src="https://img.shields.io/badge/Bilingue-FR_/_EN-a855f7?style=flat-square">
 </p>
 
-- 🌐 **Site en ligne** : [naitkaci-anis.github.io/Portfolio](https://naitkaci-anis.github.io/Portfolio/)
-
 <p align="center">
   <sub>Conçu avec passion pour la technologie et l'innovation — © 2026 Anis Nait Kaci</sub>
 </p>
