@@ -1,15 +1,7 @@
-<h1 align="center">Portfolio — Anis NAIT KACI </h1>
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Anis%20NAIT%20KACI&fontSize=50&fontColor=ffffff&desc=Portfolio%20%C2%B7%20IA%20%C2%B7%20D%C3%A9veloppement%20%C2%B7%20IT&descSize=18&descAlignY=62)
 
-<p align="center">
-  <em>Portfolio web personnel présentant mon parcours, mes compétences et mes projets en informatique<br>
-  (intelligence artificielle, développement logiciel et IT).</em>
-</p>
+Portfolio web personnel présentant mon parcours, mes compétences et mes projets en informatique (intelligence artificielle, développement logiciel et IT).
 
-<p align="center">
-  <a href="https://naitkaci-anis.github.io/Portfolio/">
-    <img src="https://img.shields.io/badge/Voir_le_site-en_ligne-00aaff?style=for-the-badge&logo=github" alt="Site en ligne">
-  </a>
-</p>
-<p align="center">
-  <sub>Conçu avec passion pour la technologie et l'innovation — © 2026 Anis Nait Kaci</sub>
-</p>
+---
+
+*Conçu avec passion pour la technologie et l'innovation — © 2026 Anis Nait Kaci*
